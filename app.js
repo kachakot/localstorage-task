@@ -6,7 +6,8 @@ const tasks = []
 
 // Get data from localStorage
 for (let i = 0; i < localStorage.length; i++) {
-    tasks.push(localStorage.key(i))
+  tasks.push(localStorage.key(i))
+}
 
 function addTask (taskName) {
   taskList.innerHTML += `<li>${taskName}</li>`
