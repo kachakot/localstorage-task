@@ -2,7 +2,7 @@ const taskList = document.querySelector('.js-tasks-list')
 const input = document.querySelector('.js-input')
 const form = document.querySelector('.js-form')
 
-let tasks = localStorage.getItem('tasks')
+const tasks = localStorage.getItem('tasks')
 let arrayTasks = tasks.split(',')
 
 
