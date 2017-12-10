@@ -2,19 +2,16 @@ const taskList = document.querySelector('.js-tasks-list')
 const input = document.querySelector('.js-input')
 const form = document.querySelector('.js-form')
 
-const tasks = []
+let tasks = localStorage.getItem('tasks')
+let arrayTasks = tasks.split(',')
 
-// Get data from localStorage
-for (let i = 0; i < localStorage.length; i++) {
-  tasks.push(localStorage.key(i))
-}
 
 function addTask (taskName) {
   taskList.innerHTML += `<li>${taskName}</li>`
 }
 
 function renderList () {
-  tasks.forEach(function (task) {
+  arrayTasks.forEach(function (task) {
     addTask(task)
   })
 }
@@ -24,7 +21,9 @@ renderList()
 form.addEventListener('submit', function (e) {
   e.preventDefault()
   if (input.value.length > 0) {
-    localStorage.setItem(input.value, input.value)
+    arrayTasks.join()
+    arrayTasks = `${arrayTasks},${input.value}`
+    localStorage.setItem('tasks', arrayTasks)
     addTask(input.value)
     input.value = ''
     input.focus()
